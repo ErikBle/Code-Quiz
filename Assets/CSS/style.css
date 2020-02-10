@@ -1,6 +1,41 @@
 *{
 box-sizing: border-box;
-padding: 0;
-margin: 0;
+
 }
 
+.container {
+  padding-top: 30px;
+ 
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    }
+
+p {
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    font-size: 20px;
+}
+
+button {
+  display:inline-block;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #FFFFFF;
+  padding: 10px 30px;
+  text-align: center;
+  background-color:#f14e4e;
+  font-size:20px;
+  width: auto;
+  
+}
+
+.start {
+  margin-left: 45%;
+
+  
+
+}
