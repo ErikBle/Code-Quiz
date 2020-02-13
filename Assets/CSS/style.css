@@ -22,7 +22,7 @@ p {
 }
 
 button {
-  display:inline-block;
+  /* display:inline-block; */
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #FFFFFF;
   padding: 10px 30px;
@@ -33,9 +33,16 @@ button {
   
 }
 
-.start {
+#startBtn {
   margin-left: 45%;
+}
 
+.choiceBtn {
+  margin-left: 35%;
   
+}
 
+.Main {
+  display:flex;
+  flex-direction: column;
 }

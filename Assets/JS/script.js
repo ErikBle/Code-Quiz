@@ -2,12 +2,14 @@ var btn1 = document.createElement("button");
 var btn2 = document.createElement("button");
 var btn3 = document.createElement("button");
 var btn4 = document.createElement("button");
-var startBtn = document.querySelector(".start");
+var startBtn = document.querySelector("#startBtn");
 
-function startQuiz(event) {
-    console.log(event);
+function startQuiz() {
     document.querySelector(".Main").appendChild(btn1);
-
+    document.querySelector(".Main").appendChild(btn2);
+    document.querySelector(".Main").appendChild(btn3);
+    document.querySelector(".Main").appendChild(btn4);
+    document.getElementById("startBtn").style.display = "none";
 };
 
 
