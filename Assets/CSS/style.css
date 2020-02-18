@@ -21,28 +21,27 @@ p {
     font-size: 20px;
 }
 
-button {
+/* button {
   /* display:inline-block; */
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #FFFFFF;
   padding: 10px 30px;
   text-align: center;
   background-color:#f14e4e;
   font-size:20px;
   width: auto;
-  
-}
+  */
 
 #startBtn {
-  margin-left: 45%;
+  margin-left: 15%;
 }
 
-.choiceBtn {
-  margin-left: 35%;
-  
+.btn-primary {
+  margin-bottom: 5px;
+  /* margin-left: 15%; */
 }
 
-.Main {
+/* .Main {
   display:flex;
   flex-direction: column;
-}
+} */
