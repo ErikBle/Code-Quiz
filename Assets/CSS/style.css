@@ -25,4 +25,8 @@ p {
   margin-left: 35%;
 }
 
-
+.btn-primary {
+  text-align: center;
+  display: center;
+  width:200px;
+}
