@@ -49,7 +49,14 @@ var outputs = {
     over: "Quiz is up!"
 }
 
-
+var audioElement = document.createElement("audio");
+    audioElement.setAttribute("src", "assets/Music/LoLtheme.wav");
+	$(".theme-button").on("click", function() {
+		audioElement.play();
+	  });
+	  $(".pause-button").on("click", function() {
+		audioElement.pause();
+	  });
 
 $('#startBtn').on('click', function(){
 	$(this).hide();
