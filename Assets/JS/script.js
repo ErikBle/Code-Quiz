@@ -43,14 +43,14 @@ var triviaQuestion = [
 
 var outputs = {
 
-    correct: "Correct :) ",
-    incorrect: "Incorrect :( ",
+    correct: "Correct",
+    incorrect: "Incorrect",
     timing: "Out of Time!",
     over: "Quiz is up!"
 }
 
 var audioElement = document.createElement("audio");
-    audioElement.setAttribute("src", "assets/Music/LoLtheme.wav");
+    audioElement.setAttribute("src", "assets/Music/LoLtheme.mp3");
 	$(".theme-button").on("click", function() {
 		audioElement.play();
 	  });
@@ -92,7 +92,9 @@ function newGame()
 function newQus(){
 	$('#msg').empty();
     $('#correctans').empty();
-    $(".answerList").show();
+	$(".answerList").show();
+	$("#outputRight").empty();
+	$("#outputWrong").empty();
 	answered = true;
 	
 
@@ -147,11 +149,11 @@ function answer(){
 	if((userChoice == rightAnswerIndex) && (answered == true)){
 		correctAnswers++;
 		currentPoints+=6;
-		$('#msg').html(outputs.correct);
+		$('#outputRight').html(outputs.correct);
 	} else if((userChoice != rightAnswerIndex) && (answered == true)){
 		incorrectAnswers++;
 		currentPoints-=3;
-		$('#msg').html(outputs.incorrect);
+		$('#outputWrong').html(outputs.incorrect);
 		$('#correctans').html('The correct answer was: ' + rightAnswerText);
 	} else{
 		unanswered++;
@@ -172,6 +174,8 @@ function resultboard(){
 	$('#time-left').empty();
 	$('#msg').empty();
 	$('#correctans').empty();
+	$("#outputRight").empty();
+	$("#outputWrong").empty();
 
 	$('#final-msg').html(outputs.over);
 	$('#correctAnswers').html("Correct Answers: " + correctAnswers);

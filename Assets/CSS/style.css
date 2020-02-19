@@ -46,3 +46,21 @@ p {
   font-size: large;
   text-shadow: blueviolet 1px 0 10px;
 }
+
+
+#outputRight {
+  font-size:20px;
+  width:300px;
+  background-color:green;
+  text-align: center;
+  color:#ffffff; 
+  
+}
+
+#outputWrong {
+  font-size:20px;
+  width:300px;
+  background-color: tomato;
+  text-align: center;
+  color:#ffffff; 
+}
