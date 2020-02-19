@@ -71,12 +71,14 @@ function newGame()
     $("#final-msg").empty();
     $("#correctAnswers").empty();
     $("#incorrectAnswers").empty();
-    $("#unanswered").empty();
+	$("#unanswered").empty();
+	$("#currentPoints").empty();
 
     currentQuestion = 0;
     correctAnswers = 0;
     incorrectAnswers = 0;
-    unanswered = 0;
+	unanswered = 0;
+	currentPoints = 0;
     newQus();
 }
 
@@ -137,9 +139,11 @@ function answer(){
 	
 	if((userChoice == rightAnswerIndex) && (answered == true)){
 		correctAnswers++;
+		currentPoints+=6;
 		$('#msg').html(outputs.correct);
 	} else if((userChoice != rightAnswerIndex) && (answered == true)){
 		incorrectAnswers++;
+		currentPoints-=3;
 		$('#msg').html(outputs.incorrect);
 		$('#correctans').html('The correct answer was: ' + rightAnswerText);
 	} else{
@@ -166,6 +170,7 @@ function resultboard(){
 	$('#correctAnswers').html("Correct Answers: " + correctAnswers);
 	$('#incorrectAnswers').html("Incorrect Answers: " + incorrectAnswers);
 	$('#unanswered').html("Unanswered: " + unanswered);
+	$('#currentPoints').html("Total Points: " + currentPoints);
 	$('#startOverBtn').addClass('btn-primary');
 	$('#startOverBtn').show();
 	$('#startOverBtn').html('Start Over?');

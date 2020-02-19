@@ -40,3 +40,8 @@ p {
   font-size: larger;
   text-shadow: #FC0 1px 0 10px;
 }
+
+#currentPoints {
+  font-size: large;
+  text-shadow: blueviolet 1px 0 10px;
+}
