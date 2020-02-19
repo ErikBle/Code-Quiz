@@ -1,35 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>League Code Quiz</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./Assets/CSS/style.css"/>
-    </head>
-    <body>
-        <button type="button" id="HSbtn" class="btn btn-primary">View Scores</button>
-       <div class="container">
-        
-        <h1><strong>League of Legends Quiz</strong></h1>
-       
-        <p> Welcome to the League of Legends quiz!
-            This quiz is designed to test your basic knowledge of the game.
-            Score points when you answer questions correctly!
-            Lose time when you answer wrong.
-            The quiz is over when the timer reaches 0.
-            Reach for the high score!
-        </p>
-       
-        <div class="Main">
-            <div class="btn-group-vertical">
-           
+    <title>League Quiz</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <button type="button" id="startBtn" class="btn btn-primary">Start</button>
-            <p class="result"></p>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./Assets/CSS/style.css">
+    
+  </head>
+  <body>
+    
+    
+        <span class="heading">
+            <h1><span>League of Legends Quiz</span></h1>
+            <p> Welcome to the League of Legends quiz!
+                This quiz is designed to test your basic knowledge of the game.
+                Score points when you answer questions correctly.
+                Lose points when you answer wrong.
+                Not answering when the timer reaches 0 loses points too.
+            </p>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br>
+                <br>
+                <button id="startbtn" class="btn btn-primary">Start</button>
+
+                <div id="time-left"></div>
+                <div id="currentQuestion"></div>
+                <div class="question"></div>
+                <div class="answerList"></div>
+
+                <div id="msg"></div>
+                <div id="correctans"></div>
+
+                <div id="final-msg"></div>
+                <div id="correctanswers"></div>
+                <div id="incorrectanswers"></div>
+                <div id="unanswered"></div>
+                <div id="startoverbtn"></div>
+            </div>
         </div>
-    </div>
-       
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
