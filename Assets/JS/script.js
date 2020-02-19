@@ -1,3 +1,13 @@
+var currentQuestion;
+var currentPoints;
+var unAnswered;
+var answered;
+var userChoice;
+var correctAnswers;
+var incorrectAnswers;
+var seconds;
+var time;
+
 var triviaQuestion = [
     {
         question: "What is the short form for League of Legends?",
@@ -39,17 +49,12 @@ var outputs = {
     over: "Quiz is up!"
 }
 
-var currentQuestion;
-var correctAnswers;
-var incorrectAnswers;
-var unAnswered;
-var answered;
-var userChoice;
-var seconds;
-var time;
+
 
 $('#startBtn').on('click', function(){
 	$(this).hide();
+	$('#startOverBtn').hide();
+	$('p').hide();
 	newGame();
 });
 
@@ -57,6 +62,8 @@ $('#startOverBtn').on('click', function(){
 	$(this).hide();
 	newGame();
 });
+
+
 
 function newGame()
 {
@@ -143,10 +150,10 @@ function answer(){
 	}
 	
 	if(currentQuestion == (triviaQuestion.length-1)){
-		setTimeout(resultboard, 4000)
+		setTimeout(resultboard, 1000)
 	} else{
 		currentQuestion++;
-		setTimeout(newQus, 4000);
+		setTimeout(newQus, 1000);
 	}	
 }
 
@@ -155,11 +162,13 @@ function resultboard(){
 	$('#msg').empty();
 	$('#correctans').empty();
 
-
 	$('#final-msg').html(outputs.over);
 	$('#correctAnswers').html("Correct Answers: " + correctAnswers);
 	$('#incorrectAnswers').html("Incorrect Answers: " + incorrectAnswers);
 	$('#unanswered').html("Unanswered: " + unanswered);
+	$('#startOverBtn').addClass('btn-primary');
+	$('#startOverBtn').show();
+	$('#startOverBtn').html('Start Over?');
 	
 }
 

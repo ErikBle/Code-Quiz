@@ -22,11 +22,21 @@ p {
 }
 
 #startBtn {
-  margin-left: 35%;
+  margin-left: 20%;
 }
 
 .btn-primary {
   text-align: center;
   display: center;
   width:200px;
+  margin-bottom: 4px;
+}
+
+.col-md-12 {
+  margin-left: 20%;
+}
+
+#time-left {
+  font-size: larger;
+  text-shadow: #FC0 1px 0 10px;
 }
