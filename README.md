@@ -25,3 +25,6 @@ You will a total of 6 questions, and earn/lose
 points based off of how many you get right/wrong. 
 <br>
 You will also lose time if you get the questions wrong.
+
+
+event.preventdefault();

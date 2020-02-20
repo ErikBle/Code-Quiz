@@ -9,6 +9,8 @@ var seconds;
 var time;
 $('#highScoreForm').hide();
 
+	
+
 var triviaQuestion = [
     {
         question: "What is the short form for League of Legends?",
@@ -64,7 +66,6 @@ $('#startBtn').on('click', function(){
 	$(this).hide();
 	$('#startOverBtn').hide();
 	$('p').hide();
-	$('#highScoreForm').hide();
 	newGame();
 });
 
@@ -83,6 +84,7 @@ function newGame() {
 	$("#unanswered").empty();
 	$("#currentPoints").empty();
 	$(".answerList").empty();
+	$('#highScoreForm').hide();
 
     currentQuestion = 0;
     correctAnswers = 0;
@@ -189,7 +191,6 @@ function answer(){
 		$('#outputWrong').html(outputs.incorrect);
 		$('#correctans').html('The correct answer was: ' + rightAnswerText);
 	} else{
-		unanswered++;
 		$('#msg').html(outputs.timing);
 		$('#correctans').html('The correct answer was: ' + rightAnswerText);
 		answered = true;
@@ -209,11 +210,11 @@ function resultboard(){
 	$('#correctans').empty();
 	$("#outputRight").empty();
 	$("#outputWrong").empty();
+	localStorage.setItem("score", JSON.stringify(currentPoints));
 
 	$('#final-msg').html(outputs.over);
 	$('#correctAnswers').html("Correct Answers: " + correctAnswers);
 	$('#incorrectAnswers').html("Incorrect Answers: " + incorrectAnswers);
-	$('#unanswered').html("Unanswered: " + unanswered);
 	$('#currentPoints').html("Total Points: " + currentPoints);
 	$('#startOverBtn').addClass('btn-primary');
 	$('#startOverBtn').show();
@@ -222,5 +223,11 @@ function resultboard(){
 	
 }
 
+$('#userNameBtn').on('click', function(event){
+	event.preventdefault();
 
+
+
+
+});
 
