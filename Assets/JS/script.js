@@ -7,6 +7,7 @@ var correctAnswers;
 var incorrectAnswers;
 var seconds;
 var time;
+$('#highScoreForm').hide();
 
 var triviaQuestion = [
     {
@@ -26,7 +27,7 @@ var triviaQuestion = [
     },
     {
         question: "How many different kind of drakes are there?",
-        answerList: ["2", "3", "4"],
+        answerList: ["2", "4", "5"],
         answer: 2
     },
     {
@@ -48,9 +49,9 @@ var outputs = {
     timing: "Out of Time!",
     over: "Quiz is up!"
 }
-
+// lines to get the audio playing
 var audioElement = document.createElement("audio");
-    audioElement.setAttribute("src", "assets/Music/LoLtheme.mp3");
+    audioElement.setAttribute("src", "./Assets/Music/LoLtheme.mp3");
 	$(".theme-button").on("click", function() {
 		audioElement.play();
 	  });
@@ -58,10 +59,12 @@ var audioElement = document.createElement("audio");
 		audioElement.pause();
 	  });
 
+// When start is pressed
 $('#startBtn').on('click', function(){
 	$(this).hide();
 	$('#startOverBtn').hide();
 	$('p').hide();
+	$('#highScoreForm').hide();
 	newGame();
 });
 
@@ -71,34 +74,65 @@ $('#startOverBtn').on('click', function(){
 });
 
 
-
-function newGame()
-{
+//empties everything and sets it to 0
+function newGame() {
 
     $("#final-msg").empty();
     $("#correctAnswers").empty();
     $("#incorrectAnswers").empty();
 	$("#unanswered").empty();
 	$("#currentPoints").empty();
+	$(".answerList").empty();
 
     currentQuestion = 0;
     correctAnswers = 0;
     incorrectAnswers = 0;
 	unanswered = 0;
 	currentPoints = 0;
-    newQus();
+	seconds = 0;
+	firstQus();
+	
 }
 
-function newQus(){
+// Grabs the first question and STARTS the global timer
+function firstQus() {
 	$('#msg').empty();
     $('#correctans').empty();
 	$(".answerList").show();
 	$("#outputRight").empty();
 	$("#outputWrong").empty();
 	answered = true;
+	seconds = 50;
 	
 
-	$('#currentQuestion').html('Question '+ (currentQuestion+1)+ '/' +triviaQuestion.length);
+	$('#currentQuestion').html('Question '+ (currentQuestion +1)+ '/' +triviaQuestion.length);
+	$('.question').html('<h2>' + triviaQuestion[currentQuestion].question + '</h2>');
+	for(var i = 0; i < 3; i++){
+		var choices = $('<div>');
+		choices.text(triviaQuestion[currentQuestion].answerList[i]);
+        choices.attr({'data-index': i });
+		choices.addClass('btn-primary');
+		$('.answerList').append(choices);
+	}
+	countdown();
+	
+	$('.btn-primary').on('click',function(){
+		userChoice = $(this).data('index');
+		clearInterval(time);
+		answer();
+	});
+}
+
+// Grabs a new question, doesn't affect the global timer
+function newQus (){
+	$('#msg').empty();
+    $('#correctans').empty();
+	$(".answerList").show();
+	$("#outputRight").empty();
+	$("#outputWrong").empty();
+	answered = true;
+
+	$('#currentQuestion').html('Question '+ (currentQuestion +1)+ '/' +triviaQuestion.length);
 	$('.question').html('<h2>' + triviaQuestion[currentQuestion].question + '</h2>');
 	for(var i = 0; i < 3; i++){
 		var choices = $('<div>');
@@ -117,9 +151,7 @@ function newQus(){
 }
 
 
-
 function countdown(){
-    seconds = 10;
 	$('#time-left').html('<h3>Time Remaining: ' + seconds + '</h3>');
 	answered = true;
 	
@@ -153,6 +185,7 @@ function answer(){
 	} else if((userChoice != rightAnswerIndex) && (answered == true)){
 		incorrectAnswers++;
 		currentPoints-=3;
+		seconds-=5;
 		$('#outputWrong').html(outputs.incorrect);
 		$('#correctans').html('The correct answer was: ' + rightAnswerText);
 	} else{
@@ -184,7 +217,8 @@ function resultboard(){
 	$('#currentPoints').html("Total Points: " + currentPoints);
 	$('#startOverBtn').addClass('btn-primary');
 	$('#startOverBtn').show();
-	$('#startOverBtn').html('Start Over?');
+	$('#startOverBtn').html('Start Over');
+	$('#highScoreForm').show();
 	
 }
 

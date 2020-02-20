@@ -17,4 +17,11 @@ And also a test to my willpower on not throwing my laptop halfway across the roo
 * Javascript
 * JQuery
 
+## Instructions
 
+Press start to...well, start the quiz. 
+<br>
+You will a total of 6 questions, and earn/lose
+points based off of how many you get right/wrong. 
+<br>
+You will also lose time if you get the questions wrong.
