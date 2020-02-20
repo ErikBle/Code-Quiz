@@ -6,13 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>High Scores</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="../CSS/style.css"/>
   </head>
   <body>
+        <!-- lines needed to work the song-->
+        <div id="musicControls" class="text-center">
+          <button class="btn btn-warning btn-xs theme-button">
+            <span class="fa fa-music"></span> Play Theme!</button>
+          <button class="btn btn-dark btn-xs pause-button">
+            <span class="fa fa-pause"></span> Pause Song</button>
+        </div>
+        
     <div class="container">
+   
       <div id="highScores">
         <h1 id="finalScore">High Scores</h1>
         <ul id="highScoresList"></ul>
+         
+      <!-- bootstrap for High scores-->
+      <div class="input-group mb-3" id="highScoreForm">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary" type="button" id="userNameBtn">Enter Name</button>
+        </div>
+        <input type="text" class="form-control"  aria-label="Enter Name" id="userName" >
+      </div>
+     
         <a class="btn btn-primary" href="../../index.html">Start Over</a>
       </div>
     </div>

@@ -68,3 +68,18 @@ p {
 #highScoreForm {
   width: 400px;
 }
+
+#highScoreBtn {
+  margin-left: 43%;
+}
+
+#highScoresList {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 4rem;
+}
+
+.high-score {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}

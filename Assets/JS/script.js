@@ -1,14 +1,11 @@
 var currentQuestion;
 var currentPoints;
 var unAnswered;
-var answered;
 var userChoice;
 var correctAnswers;
 var incorrectAnswers;
 var seconds;
 var time;
-$('#highScoreForm').hide();
-
 	
 
 var triviaQuestion = [
@@ -66,11 +63,13 @@ $('#startBtn').on('click', function(){
 	$(this).hide();
 	$('#startOverBtn').hide();
 	$('p').hide();
+	$('#highScoreBtn').hide();
 	newGame();
 });
 
 $('#startOverBtn').on('click', function(){
 	$(this).hide();
+	$('#highScoreBtn').hide();
 	newGame();
 });
 
@@ -84,7 +83,6 @@ function newGame() {
 	$("#unanswered").empty();
 	$("#currentPoints").empty();
 	$(".answerList").empty();
-	$('#highScoreForm').hide();
 
     currentQuestion = 0;
     correctAnswers = 0;
@@ -103,13 +101,13 @@ function firstQus() {
 	$(".answerList").show();
 	$("#outputRight").empty();
 	$("#outputWrong").empty();
-	answered = true;
 	seconds = 50;
 	
 
 	$('#currentQuestion').html('Question '+ (currentQuestion +1)+ '/' +triviaQuestion.length);
 	$('.question').html('<h2>' + triviaQuestion[currentQuestion].question + '</h2>');
-	for(var i = 0; i < 3; i++){
+	for(var i = 0; i < 3; i++)
+	{
 		var choices = $('<div>');
 		choices.text(triviaQuestion[currentQuestion].answerList[i]);
         choices.attr({'data-index': i });
@@ -132,11 +130,11 @@ function newQus (){
 	$(".answerList").show();
 	$("#outputRight").empty();
 	$("#outputWrong").empty();
-	answered = true;
 
 	$('#currentQuestion').html('Question '+ (currentQuestion +1)+ '/' +triviaQuestion.length);
 	$('.question').html('<h2>' + triviaQuestion[currentQuestion].question + '</h2>');
-	for(var i = 0; i < 3; i++){
+	for(var i = 0; i < 3; i++)
+	{
 		var choices = $('<div>');
 		choices.text(triviaQuestion[currentQuestion].answerList[i]);
         choices.attr({'data-index': i });
@@ -155,8 +153,6 @@ function newQus (){
 
 function countdown(){
 	$('#time-left').html('<h3>Time Remaining: ' + seconds + '</h3>');
-	answered = true;
-	
 	time = setInterval(showCountdown, 1000);
 }
 
@@ -165,7 +161,6 @@ function showCountdown(){
 	$('#time-left').html('<h3>Time Remaining: ' + seconds + '</h3>');
 	if(seconds < 1){
 		clearInterval(time);
-		answered = false;
 		answer();
 	}
 }
@@ -180,21 +175,17 @@ function answer(){
 	var rightAnswerIndex = triviaQuestion[currentQuestion].answer;
 	
 	
-	if((userChoice == rightAnswerIndex) && (answered == true)){
+	if((userChoice == rightAnswerIndex)) {
 		correctAnswers++;
 		currentPoints+=6;
 		$('#outputRight').html(outputs.correct);
-	} else if((userChoice != rightAnswerIndex) && (answered == true)){
+	} else if((userChoice != rightAnswerIndex)){
 		incorrectAnswers++;
 		currentPoints-=3;
 		seconds-=5;
 		$('#outputWrong').html(outputs.incorrect);
 		$('#correctans').html('The correct answer was: ' + rightAnswerText);
-	} else{
-		$('#msg').html(outputs.timing);
-		$('#correctans').html('The correct answer was: ' + rightAnswerText);
-		answered = true;
-	}
+	} 
 	
 	if(currentQuestion == (triviaQuestion.length-1)){
 		setTimeout(resultboard, 1000)
@@ -219,15 +210,13 @@ function resultboard(){
 	$('#startOverBtn').addClass('btn-primary');
 	$('#startOverBtn').show();
 	$('#startOverBtn').html('Start Over');
-	$('#highScoreForm').show();
+	$('#highScoreBtn').show();
 	
 }
 
-$('#userNameBtn').on('click', function(event){
-	event.preventdefault();
 
 
 
 
-});
+
 
