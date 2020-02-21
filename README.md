@@ -27,5 +27,3 @@ points based off of how many you get right/wrong.
 You will also lose time if you get the questions wrong.
 
 
-event.preventdefault();
-$('#highScoreForm').hide();
