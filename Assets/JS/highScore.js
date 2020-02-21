@@ -14,18 +14,12 @@ var audioElement = document.createElement("audio");
   const mostRecentScore = localStorage.getItem('score')
   const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
   const highScoresList = document.getElementById("highScoresList");
-  console.log(highScores)
-  
-  
-  userName.addEventListener("keyup", () => {
-    saveScoreBtn.disabled = !userName.value;
-  });
-    
-    saveHighScore = e => {
+
+  //onClick how to save the score
+  //the onClick is on the html page
+  saveHighScore = e => {
       e.preventDefault();
-
-
-    const scores = {
+      const scores = {
       score : mostRecentScore,
       name: userName.value
       
@@ -35,8 +29,15 @@ var audioElement = document.createElement("audio");
     
   }
 
+  //To display the scores
   highScoresList.innerHTML = highScores
   .map(scores => {
-    return `<li class="high-score">${scores.name} - ${scores.score}</li>`;
+    return `<li class="high-score">${scores.name} : ${scores.score}</li>`;
   })
   .join("");
+
+  //clears the local cache. xd
+  //onclick on the html page.
+  function clearAll() {
+    localStorage.clear();
+ }

@@ -45,7 +45,6 @@ var outputs = {
 
     correct: "Correct",
     incorrect: "Incorrect",
-    timing: "Out of Time!",
     over: "Quiz is up!"
 }
 // lines to get the audio playing
@@ -102,7 +101,7 @@ function firstQus() {
 	$(".answerList").show();
 	$("#outputRight").empty();
 	$("#outputWrong").empty();
-	seconds = 50;
+	seconds = 40;
 	
 
 	$('#currentQuestion').html('Question '+ (currentQuestion +1)+ '/' +triviaQuestion.length);
@@ -151,7 +150,7 @@ function newQus (){
 	});
 }
 
-
+//code for the global timer
 function countdown(){
 	$('#time-left').html('<h3>Time Remaining: ' + seconds + '</h3>');
 	time = setInterval(showCountdown, 1000);
@@ -166,7 +165,7 @@ function showCountdown(){
 	}
 }
 
-
+//lines when the user submits an answer
 function answer(){
 	$('#currentQuestion').empty();
     $('.question').empty();
@@ -186,16 +185,21 @@ function answer(){
 		seconds-=5;
 		$('#outputWrong').html(outputs.incorrect);
 		$('#correctans').html('The correct answer was: ' + rightAnswerText);
-	} 
+	} else{
+		incorrectAnswers++;
+		$('#msg').html(outputs.over);
+		$('#correctans').html('The correct answer was: ' + rightAnswerText);
+	}	
 	
 	if(currentQuestion == (triviaQuestion.length-1)){
-		setTimeout(resultboard, 1000)
+		setTimeout(resultboard, 2500)
 	} else{
 		currentQuestion++;
-		setTimeout(newQus, 1000);
+		setTimeout(newQus, 2500);
 	}	
 }
 
+//End screen
 function resultboard(){
 	$('#time-left').empty();
 	$('#msg').empty();

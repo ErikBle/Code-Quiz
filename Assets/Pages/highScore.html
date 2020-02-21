@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>High Scores</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../CSS/style.css"/>
+    <link rel="stylesheet" href="../CSS/style.css">
   </head>
   <body>
         <!-- lines needed to work the song-->
@@ -25,12 +25,13 @@
          
       <!-- bootstrap for High scores-->
       <div class="input-group mb-3" id="highScoreForm">
+        <ul id="highScoresList"></ul>
         <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="submit" id="saveScoreBtn" onclick="saveHighScore(event)">Save Name</button>
+          <button class="btn btn-outline-secondary" type="submit" aria-label="Save Score" id="saveScoreBtn" onclick="saveHighScore(event)">Save Name</button>
         </div>
         <input type="text" class="form-control"  aria-label="Enter Name" id="userName" >
       </div>
-        <a class="btn btn-primary" type="button" id="clearBtn">Clear Highscores</a>
+        <a class="btn btn-primary" type="button" id="clearBtn" onclick="clearAll()">Clear Highscores</a>
         <br>
         <a class="btn btn-primary" href="../../index.html">Start Over</a>
       </div>
