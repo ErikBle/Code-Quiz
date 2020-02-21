@@ -13,6 +13,7 @@ var audioElement = document.createElement("audio");
   const saveScoreBtn = document.getElementById("saveScoreBtn")
   const mostRecentScore = localStorage.getItem('score')
   const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  const highScoresList = document.getElementById("highScoresList");
   console.log(highScores)
   
   
@@ -23,9 +24,6 @@ var audioElement = document.createElement("audio");
     saveHighScore = e => {
       e.preventDefault();
 
-    
-
-   
 
     const scores = {
       score : mostRecentScore,
@@ -36,3 +34,9 @@ var audioElement = document.createElement("audio");
     localStorage.setItem("highScores", JSON.stringify(highScores));
     
   }
+
+  highScoresList.innerHTML = highScores
+  .map(scores => {
+    return `<li class="high-score">${scores.name} - ${scores.score}</li>`;
+  })
+  .join("");
