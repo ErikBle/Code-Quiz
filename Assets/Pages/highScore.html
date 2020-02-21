@@ -26,11 +26,12 @@
       <!-- bootstrap for High scores-->
       <div class="input-group mb-3" id="highScoreForm">
         <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="button" id="userNameBtn">Enter Name</button>
+          <button class="btn btn-outline-secondary" type="submit" id="saveScoreBtn" onclick="saveHighScore(event)">Save Name</button>
         </div>
         <input type="text" class="form-control"  aria-label="Enter Name" id="userName" >
       </div>
-     
+        <a class="btn btn-primary" type="button" id="clearBtn">Clear Highscores</a>
+        <br>
         <a class="btn btn-primary" href="../../index.html">Start Over</a>
       </div>
     </div>

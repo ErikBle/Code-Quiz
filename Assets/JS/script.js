@@ -6,7 +6,7 @@ var correctAnswers;
 var incorrectAnswers;
 var seconds;
 var time;
-	
+$('#hsBtn').hide();
 
 var triviaQuestion = [
     {
@@ -64,6 +64,7 @@ $('#startBtn').on('click', function(){
 	$('#startOverBtn').hide();
 	$('p').hide();
 	$('#highScoreBtn').hide();
+	$('#hsBtn').hide();
 	newGame();
 });
 
@@ -207,6 +208,7 @@ function resultboard(){
 	$('#correctAnswers').html("Correct Answers: " + correctAnswers);
 	$('#incorrectAnswers').html("Incorrect Answers: " + incorrectAnswers);
 	$('#currentPoints').html("Total Points: " + currentPoints);
+	$('#hsBtn').show();
 	$('#startOverBtn').addClass('btn-primary');
 	$('#startOverBtn').show();
 	$('#startOverBtn').html('Start Over');

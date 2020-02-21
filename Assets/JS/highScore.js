@@ -8,24 +8,31 @@ var audioElement = document.createElement("audio");
 		audioElement.pause();
 	  });
 
-const username = document.getElementById("userName");
-const saveScoreBtn = document.getElementById("saveScoreBtn");
-const finalScore = document.getElementById("finalScore");
-const mostRecentScore = localStorage.getItem("mostRecentScore");
-
-
-const highScoresList = document.getElementById("highScoresList");
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
-
-
-
-highScoresList.innerHTML = highScores
-  .map(score => {
-    return `<li class="high-score">${score.name} - ${score.score}</li>`;
-  })
-  .join("");
-
-  $('#userNameBtn').on('click', function(event){
-    event.preventdefault();
+    
+  const userName = document.getElementById("userName");
+  const saveScoreBtn = document.getElementById("saveScoreBtn")
+  const mostRecentScore = localStorage.getItem('score')
+  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  console.log(highScores)
+  
+  
+  userName.addEventListener("keyup", () => {
+    saveScoreBtn.disabled = !userName.value;
   });
+    
+    saveHighScore = e => {
+      e.preventDefault();
+
+    
+
+   
+
+    const scores = {
+      score : mostRecentScore,
+      name: userName.value
+      
+    }
+    highScores.push(scores);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    
+  }

@@ -28,3 +28,4 @@ You will also lose time if you get the questions wrong.
 
 
 event.preventdefault();
+$('#highScoreForm').hide();
