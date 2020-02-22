@@ -102,7 +102,7 @@ function firstQus() {
 	$(".answerList").show();
 	$("#outputRight").empty();
 	$("#outputWrong").empty();
-	seconds = 5;
+	seconds = 40;
 	
 
 	$('#currentQuestion').html('Question '+ (currentQuestion +1)+ '/' +triviaQuestion.length);
