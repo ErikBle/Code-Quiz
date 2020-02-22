@@ -70,6 +70,7 @@ $('#startBtn').on('click', function(){
 $('#startOverBtn').on('click', function(){
 	$(this).hide();
 	$('#highScoreBtn').hide();
+	$('#hsBtn').hide();
 	newGame();
 });
 
