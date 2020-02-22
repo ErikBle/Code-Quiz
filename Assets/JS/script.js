@@ -102,7 +102,7 @@ function firstQus() {
 	$(".answerList").show();
 	$("#outputRight").empty();
 	$("#outputWrong").empty();
-	seconds = 40;
+	seconds = 5;
 	
 
 	$('#currentQuestion').html('Question '+ (currentQuestion +1)+ '/' +triviaQuestion.length);
@@ -156,13 +156,16 @@ function countdown(){
 	$('#time-left').html('<h3>Time Remaining: ' + seconds + '</h3>');
 	time = setInterval(showCountdown, 1000);
 }
-
+// When timer = 0 , ends the game
 function showCountdown(){
 	seconds--;
 	$('#time-left').html('<h3>Time Remaining: ' + seconds + '</h3>');
 	if(seconds < 1){
 		clearInterval(time);
-		answer();
+		$(".answerList").empty();
+		$('.question').empty();
+		$('#currentQuestion').empty();
+		resultboard();
 	}
 }
 
@@ -185,10 +188,6 @@ function answer(){
 		currentPoints-=3;
 		seconds-=5;
 		$('#outputWrong').html(outputs.incorrect);
-		$('#correctans').html('The correct answer was: ' + rightAnswerText);
-	} else{
-		incorrectAnswers++;
-		$('#msg').html(outputs.over);
 		$('#correctans').html('The correct answer was: ' + rightAnswerText);
 	}	
 	
